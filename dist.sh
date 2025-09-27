@@ -3,20 +3,22 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if [[ $# -ne 2 ]]; then
-    echo "Usage: ./dist.sh <TOOLCHAIN> <TARGET>"
+if [[ $# -ne 3 ]]; then
+    echo "Usage: ./dist.sh <CHANNEL> <TOOLCHAIN> <TARGET>"
+    exit 1
 fi
 
-toolchain=$1
-target=$2
+channel=$1
+toolchain=$2
+target=$3
 
 pushd rust/build/dist
 
 echo "Extracting distribution artifacts"
-tar -xvf rust-std-$toolchain-$target.tar.gz
-rm rust-std-$toolchain-$target.tar.gz
+tar -xvf rust-std-$channel-$target.tar.gz
+rm rust-std-$channel-$target.tar.gz
 
-pushd rust-std-$toolchain-$target
+pushd rust-std-$channel-$target
 
 echo "Modifying distribution artifacts"
 mv install.sh rust-install.sh
@@ -26,6 +28,6 @@ chmod +x install.sh
 popd
 
 echo "Compressing distribution artifacts"
-tar -cavf rust-std-$toolchain-$target{.tar.gz,}
+tar -cavf rust-std-$channel-$target{.tar.gz,}
 
 popd
