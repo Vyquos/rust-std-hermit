@@ -5,13 +5,13 @@ download-ci-llvm = true
 
 [build]
 target = [
-    "aarch64-unknown-hermit",
-    "riscv64gc-unknown-hermit",
+#    "aarch64-unknown-hermit",
+#    "riscv64gc-unknown-hermit",
     "x86_64-unknown-hermit",
 ]
 
 [rust]
-channel = "stable"
+channel = "nightly"
 
 [dist]
 compression-formats = ["gz"]
