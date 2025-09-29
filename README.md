@@ -10,7 +10,7 @@ This repository provides installable distribution artifacts of `rust-std` for th
 
 1.  Download and extract the artifact from the latest [release].
 
-    [release]: https://github.com/hermitcore/rust-std-hermit/releases
+    [release]: https://github.com/Vyquos/rust-std-hermit/releases
 
 2.  Run `./install.sh`
 
